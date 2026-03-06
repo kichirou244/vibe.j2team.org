@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from '@/views/HomePage.vue'
-import HelloWorld from '@/views/hello-world/index.vue'
+
+const HomePage = () => import('@/views/HomePage.vue')
+const HelloWorld = () => import('@/views/hello-world/index.vue')
 
 const DEFAULT_TITLE = 'vibe.j2team.org - J2TEAM Community Vibe Coding'
 const DEFAULT_DESCRIPTION =

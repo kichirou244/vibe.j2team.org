@@ -1,14 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
-
-const pages = [
-  {
-    name: 'Hello World',
-    path: '/hello-world',
-    description: 'Trang mẫu đầu tiên - bắt đầu từ đây!',
-    author: 'J2TEAM',
-  },
-]
+import { pages, REPO_URL } from '@/data/pages'
 
 const techStack = [
   { name: 'Vue 3', description: 'Progressive JavaScript Framework', url: 'https://vuejs.org/' },
@@ -32,10 +24,10 @@ const rules = [
 ]
 
 const steps = [
-  'Fork repo và clone về máy',
+  `<a href="${REPO_URL}" target="_blank" rel="noopener nofollow" class="text-accent-coral link-underline">Fork repo</a> và clone về máy`,
   'Tạo thư mục mới trong <code class="px-1.5 py-0.5 bg-accent-amber/10 text-accent-amber font-mono text-xs">src/views/&lt;tên-trang&gt;/</code> với file <code class="px-1.5 py-0.5 bg-accent-amber/10 text-accent-amber font-mono text-xs">index.vue</code>',
   'Thêm route trong <code class="px-1.5 py-0.5 bg-accent-amber/10 text-accent-amber font-mono text-xs">src/router/index.ts</code>',
-  'Thêm link trang của bạn vào mảng <code class="px-1.5 py-0.5 bg-accent-amber/10 text-accent-amber font-mono text-xs">pages</code> trong <code class="px-1.5 py-0.5 bg-accent-amber/10 text-accent-amber font-mono text-xs">HomePage.vue</code>',
+  'Thêm link trang của bạn vào mảng <code class="px-1.5 py-0.5 bg-accent-amber/10 text-accent-amber font-mono text-xs">pages</code> trong <code class="px-1.5 py-0.5 bg-accent-amber/10 text-accent-amber font-mono text-xs">src/data/pages.ts</code>',
   'Tạo Pull Request và chờ merge!',
 ]
 
