@@ -29,6 +29,10 @@ const featuredPaths = [
   '/tank-rescue',
   '/what-if',
   '/bug-war-room',
+  '/hacker-ctf',
+  '/peer-drop',
+  '/startup-in-5-minutes',
+  '/canchi',
 ]
 
 function extractPath(globKey: string): string {
