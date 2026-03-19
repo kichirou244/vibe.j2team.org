@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-vibe.j2team.org — A collaborative vibe coding project by J2TEAM Community with 190+ sub-apps. The homepage acts as a launcher linking to sub-apps, where each community member creates their own page.
+vibe.j2team.org — A collaborative vibe coding project by J2TEAM Community with 210+ sub-apps. The homepage acts as a launcher linking to sub-apps, where each community member creates their own page. Deployed to Cloudflare Workers (static assets via `wrangler.json`).
 
 ## Tech Stack
 
@@ -47,16 +47,24 @@ src/
     homepage.ts              # Homepage content data (tech stack, rules, products)
     constants.ts             # Shared constants
   components/
-    home/                    # Homepage section components (HeroSection, PagesGrid, etc.)
+    home/                    # Homepage section components (HeroSection, PagesGrid, RecentlyViewed, etc.)
+    AppBreadcrumb.vue        # Standardized breadcrumb navigation for core pages
+    AuthorAvatar.vue         # Author avatar (GitHub avatar via useGithubAvatar)
     BackToTop.vue
+    CategoryFilter.vue       # Category filter UI for homepage
     EdgeToolbar.vue          # Slide-out toolbar on sub-pages (source link, bookmark, home, comments)
     ErrorBoundary.vue        # Error boundary wrapper
     FavoriteButton.vue       # Bookmark/favorite toggle button
     GiscusModal.vue          # Giscus comments modal (per-page discussions)
+    PageCard.vue             # Page card component used in grids
   composables/
-    useFavorites.ts          # Bookmark/favorite state (localStorage via VueUse)
     useDraggable.ts          # Drag behavior composable
-  stores/                    # Pinia stores (currently unused — pages manage state locally)
+    useGithubAvatar.ts       # Resolves GitHub avatar URL from author name
+    useSearchShortcut.ts     # Keyboard shortcut for search (Ctrl+K / Cmd+K)
+  stores/
+    useFavoritesStore.ts     # Bookmark/favorite state (localStorage via VueUse)
+    usePagesStore.ts         # Pages registry (fetches pages.json, provides page list)
+    useRecentlyViewedStore.ts # Tracks recently visited pages
   views/
     HomePage.vue             # Landing page / launcher
     ContentPolicy.vue        # Content policy page
