@@ -464,6 +464,11 @@ function onKey(e: KeyboardEvent) {
   if (!e.repeat && (e.key === 'f' || e.key === 'F')) doFarm(false)
 }
 
+function openAgain() {
+  showResult.value = false
+  if (keys.value > 0) openCase()
+}
+
 async function openCase() {
   if (spinning.value || keys.value <= 0) return
   keys.value--
@@ -1727,10 +1732,7 @@ const TABS = computed<[Tab, string, string][]>(() => [
             </div>
             <div class="flex gap-2">
               <button
-                @click="
-                  showResult = false
-                  keys > 0 && openCase()
-                "
+                @click="openAgain"
                 :disabled="keys <= 0"
                 class="flex-1 py-2 rounded-lg text-xs font-bold text-black transition-opacity"
                 :class="keys > 0 ? 'hover:opacity-85' : 'opacity-40 cursor-not-allowed'"
